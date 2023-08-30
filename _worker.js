@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:49:44
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-29 10:55:04
+ * @LastEditTime: 2023-08-30 10:46:16
  * @FilePath: /demo/_worker.js
  */
 // 超级模式,
@@ -18,6 +18,7 @@
         return env.ASSETS.fetch(request)
     }
 } */
+import _ from 'underscore';
 
 class ContentHandler {
     element(element) {
@@ -29,7 +30,7 @@ export default {
     async fetch(request, env) {
         const url = new URL(request.url)
         const rewriter = new HTMLRewriter().on('div#dynamic-content', new ContentHandler())
-
+        const res = await env.KV.get('games');
         if (url.pathname.startsWith('/apps/')) {
             // 创建一个包含基础 HTML 结构的新 Response 对象
             const html = `
@@ -41,6 +42,7 @@ export default {
           </head>
           <body>
             <div id="dynamic-content"></div>
+            <div>${res}</div>
           </body>
           </html>
         `

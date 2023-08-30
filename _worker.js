@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:49:44
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-30 15:41:46
+ * @LastEditTime: 2023-08-30 16:01:29
  * @FilePath: /demo/_worker.js
  */
 // 超级模式,
@@ -36,7 +36,8 @@ export default {
         if (match && match[1]) {
             const kv_res = await env.KV.get(match[1])
             const sql = 'SELECT * from sloppyware_app_info'
-            const d1_res =  await env.DB.prepare(sql).all()
+            const sql1 = 'SELECT * FROM sloppyware_app_info WHERE app_package = ?1'
+            const d1_res =  await env.DB.prepare(sql1).bind(match[1])
             // 创建一个包含基础 HTML 结构的新 Response 对象
             const html = `
                     <!DOCTYPE html>

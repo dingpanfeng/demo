@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:49:44
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-30 12:16:14
+ * @LastEditTime: 2023-08-30 13:02:07
  * @FilePath: /demo/_worker.js
  */
 // 超级模式,
@@ -33,8 +33,8 @@ export default {
         const regex = /\/apps\/(.*)/;
         const match = pathname.match(regex);
         const rewriter = new HTMLRewriter().on('div#dynamic-content', new ContentHandler())
-        const res = await env.KV.get('games');
         if (match && match[1]) {
+            const res = await env.KV.get(match[1]);
             // 创建一个包含基础 HTML 结构的新 Response 对象
             const html = `
           <!DOCTYPE html>

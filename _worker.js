@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:49:44
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-30 10:46:16
+ * @LastEditTime: 2023-08-30 10:48:47
  * @FilePath: /demo/_worker.js
  */
 // 超级模式,
@@ -18,7 +18,6 @@
         return env.ASSETS.fetch(request)
     }
 } */
-import _ from 'underscore';
 
 class ContentHandler {
     element(element) {

@@ -28,15 +28,15 @@ class ContentHandler {
 export default {
     async fetch(request, env) {
         const url = new URL(request.url)
-        const pathname = url.pathname;
+        const pathname = url.pathname
         // 使用正则表达式匹配
-        const regex = /\/apps\/(.*)/;
-        const match = pathname.match(regex);
+        const regex = /\/apps\/(.*)/
+        const match = pathname.match(regex)
         const rewriter = new HTMLRewriter().on('div#dynamic-content', new ContentHandler())
         if (match && match[1]) {
-            const kv_res = await env.KV.get(match[1]);
-            const sql = 'SELECT * from sloppyware_app_info';
-	        const d1_res = await env.DB.prepare(sql);
+            const kv_res = await env.KV.get(match[1])
+            const sql = 'SELECT * from sloppyware_app_info'
+            const d1_res = await env.DB.prepare(sql)
             // 创建一个包含基础 HTML 结构的新 Response 对象
             const html = `
                     <!DOCTYPE html>
@@ -50,7 +50,7 @@ export default {
                         <h1>KV</h1>
                         <div>${kv_res}</div>
                         <h1>D1</h1>
-                        <pre>${d1_res}</pre>
+                        <pre>${JSON.stringify(d1_res, null, 2)}</pre>
                     </body>
                     </html>
                 `

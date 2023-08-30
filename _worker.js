@@ -35,9 +35,8 @@ export default {
         const rewriter = new HTMLRewriter().on('div#dynamic-content', new ContentHandler())
         if (match && match[1]) {
             const kv_res = await env.KV.get(match[1]);
-            const sql = 'SELECT * FROM sloppyware_app_info';
-	        const ps = env.DB.prepare(sql);
-            const d1_res = await ps.first();
+            const sql = 'SELECT * from sloppyware_app_info';
+	        const d1_res = await env.DB.prepare(sql);
             // 创建一个包含基础 HTML 结构的新 Response 对象
             const html = `
                     <!DOCTYPE html>

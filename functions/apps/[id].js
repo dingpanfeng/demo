@@ -6,6 +6,8 @@
  * @FilePath: /demo/functions/apps/[id].js
  */
 // https://developers.cloudflare.com/pages/platform/functions/routing/
+import ejs from '../../ejs'
+console.log(ejs);
 export async function onRequest(context) {
     let id = context.params.id
     const kv_res = await context.env.KV.get(id)
@@ -35,9 +37,3 @@ export async function onRequest(context) {
         }
     })
 }
-{/* <h1>KV</h1>
-                <div>${kv_res}</div>
-                <h1>D1</h1>
-                <pre>${JSON.stringify(d1_res, null, 2)}</pre>
-                <h1>D1</h1>
-                <pre>${JSON.stringify(json, null, 2)}</pre> */}

@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:49:44
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-31 15:47:45
+ * @LastEditTime: 2023-08-31 15:55:25
  * @FilePath: /demo/_worker.js
  */
 // 超级模式,
@@ -54,10 +54,11 @@ export default {
                     </body>
                     </html>
                 `
+            const compiled = _.template(html);
             const init = {
                 headers: { 'content-type': 'text/html;charset=UTF-8' }
             }
-            const response = new Response(html, init)
+            const response = new Response(compiled, init)
 
             // 使用 HTMLRewriter 修改 Response 内容
             return rewriter.transform(response)

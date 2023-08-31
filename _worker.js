@@ -55,7 +55,7 @@ export default {
                     </html>
                 `
             const compiled = _.template("<p>Hello <%= name %>!</p>");
-            const user = { "name": name };
+            const user = { "name": '1122344' };
             const init = {
                 headers: { 'content-type': 'text/html;charset=UTF-8' }
             }

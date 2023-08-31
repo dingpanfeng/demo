@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:49:44
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-31 10:53:27
+ * @LastEditTime: 2023-08-31 15:42:35
  * @FilePath: /demo/_worker.js
  */
 // 超级模式,
@@ -20,6 +20,7 @@
 } */
 
 import ContentHandler from './contentHandler'
+import _ from 'underscore'
 let json = require('./_routes.json')
 export default {
     async fetch(request, env) {
@@ -48,8 +49,8 @@ export default {
                         <div>${kv_res}</div>
                         <h1>D1</h1>
                         <pre>${JSON.stringify(d1_res, null, 2)}</pre>
-                        <h1>D1</h1>
-                        <pre>${JSON.stringify(json, null, 2)}</pre>
+                        <h1>other</h1>
+                        <pre>${JSON.stringify(_, null, 2)}</pre>
                     </body>
                     </html>
                 `

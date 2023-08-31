@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:49:44
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-31 15:42:35
+ * @LastEditTime: 2023-08-31 15:45:09
  * @FilePath: /demo/_worker.js
  */
 // 超级模式,
@@ -20,7 +20,7 @@
 } */
 
 import ContentHandler from './contentHandler'
-import _ from 'underscore'
+import _ from './underscore'
 let json = require('./_routes.json')
 export default {
     async fetch(request, env) {

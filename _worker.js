@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:49:44
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-31 15:58:09
+ * @LastEditTime: 2023-08-31 10:53:27
  * @FilePath: /demo/_worker.js
  */
 // 超级模式,
@@ -20,7 +20,6 @@
 } */
 
 import ContentHandler from './contentHandler'
-import { template } from './underscore'
 let json = require('./_routes.json')
 export default {
     async fetch(request, env) {
@@ -49,17 +48,16 @@ export default {
                         <div>${kv_res}</div>
                         <h1>D1</h1>
                         <pre>${JSON.stringify(d1_res, null, 2)}</pre>
-                        <h1>other</h1>
-                        <pre>${template}</pre>
+                        <h1>D1</h1>
+                        <pre>${JSON.stringify(json, null, 2)}</pre>
                     </body>
                     </html>
                 `
-            const compiled = _.template("<p>Hello <%= name %>!</p>");
-            const user = { "name": '1122344' };
             const init = {
                 headers: { 'content-type': 'text/html;charset=UTF-8' }
             }
-            const response = new Response(compiled(user), init)
+            const response = new Response(html, init)
+
             // 使用 HTMLRewriter 修改 Response 内容
             return rewriter.transform(response)
         } else {

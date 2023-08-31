@@ -20,6 +20,7 @@
 } */
 
 import ContentHandler from './contentHandler'
+let json = require('./_routes.json')
 export default {
     async fetch(request, env) {
         const url = new URL(request.url)
@@ -47,6 +48,7 @@ export default {
                         <div>${kv_res}</div>
                         <h1>D1</h1>
                         <pre>${JSON.stringify(d1_res, null, 2)}</pre>
+                        <pre>${json}</pre>
                     </body>
                     </html>
                 `

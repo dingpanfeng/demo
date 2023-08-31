@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:24:50
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-31 15:43:15
+ * @LastEditTime: 2023-08-31 22:20:38
  * @FilePath: /demo/functions/apps/[id].js
  */
 // https://developers.cloudflare.com/pages/platform/functions/routing/
@@ -12,6 +12,7 @@ export async function onRequest(context) {
     // const sql = 'SELECT * from sloppyware_app_info'
     const sql1 = 'SELECT * FROM sloppyware_app_info WHERE app_package = ?1'
     const d1_res = await context.env.DB.prepare(sql1).bind(id).all()
+    const { results: data } = d1_res
     // 创建一个包含基础 HTML 结构的新 Response 对象
     const html = `
             <!DOCTYPE html>
@@ -21,6 +22,8 @@ export async function onRequest(context) {
                 <title>动态内容</title>
             </head>
             <body>
+                <h1>数据绑定</h1>
+                <p>${data.id}-${data.app_name}</p>
                 <div id="dynamic-content">${id}</div>
                 <h1>KV</h1>
                 <div>${kv_res}</div>

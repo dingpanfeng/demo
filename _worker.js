@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:49:44
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-30 16:05:06
+ * @LastEditTime: 2023-08-31 10:51:33
  * @FilePath: /demo/_worker.js
  */
 // 超级模式,
@@ -21,6 +21,7 @@
 
 import ContentHandler from './contentHandler'
 let json = require('./_routes.json')
+let ejs = require('./111.ejs')
 export default {
     async fetch(request, env) {
         const url = new URL(request.url)
@@ -48,7 +49,10 @@ export default {
                         <div>${kv_res}</div>
                         <h1>D1</h1>
                         <pre>${JSON.stringify(d1_res, null, 2)}</pre>
-                        <pre>${json}</pre>
+                        <h1>D1</h1>
+                        <pre>${JSON.stringify(json, null, 2)}</pre>
+                        <h1>ejs</h1>
+                        <pre>${ejs}</pre>
                     </body>
                     </html>
                 `

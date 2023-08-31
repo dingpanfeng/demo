@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:24:50
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-31 22:20:38
+ * @LastEditTime: 2023-08-31 22:24:57
  * @FilePath: /demo/functions/apps/[id].js
  */
 // https://developers.cloudflare.com/pages/platform/functions/routing/
@@ -11,7 +11,8 @@ export async function onRequest(context) {
     const kv_res = await context.env.KV.get(id)
     // const sql = 'SELECT * from sloppyware_app_info'
     const sql1 = 'SELECT * FROM sloppyware_app_info WHERE app_package = ?1'
-    const d1_res = await context.env.DB.prepare(sql1).bind(id).all()
+    // const d1_res = await context.env.DB.prepare(sql1).bind(id).all()
+    const d1_res = await context.env.DB.prepare(sql1).bind(id).first()
     const data = d1_res.results[0]
     // 创建一个包含基础 HTML 结构的新 Response 对象
     const html = `

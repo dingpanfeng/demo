@@ -19,12 +19,7 @@
     }
 } */
 
-class ContentHandler {
-    element(element) {
-        element.setInnerContent('这是通过 _worker.js 超级模式动态生成的内容')
-    }
-}
-
+import ContentHandler from './contentHandler'
 export default {
     async fetch(request, env) {
         const url = new URL(request.url)
@@ -37,7 +32,7 @@ export default {
             const kv_res = await env.KV.get(match[1])
             const sql = 'SELECT * from sloppyware_app_info'
             const sql1 = 'SELECT * FROM sloppyware_app_info WHERE app_package = ?1'
-            const d1_res =  await env.DB.prepare(sql1).bind(match[1]).all()
+            const d1_res = await env.DB.prepare(sql1).bind(match[1]).all()
             // 创建一个包含基础 HTML 结构的新 Response 对象
             const html = `
                     <!DOCTYPE html>

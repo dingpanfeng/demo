@@ -2,7 +2,7 @@
  * @Author: 丁攀峰 allen@leanktech.com
  * @Date: 2023-08-22 10:24:50
  * @LastEditors: 丁攀峰 allen@leanktech.com
- * @LastEditTime: 2023-08-31 15:11:50
+ * @LastEditTime: 2023-08-31 15:14:31
  * @FilePath: /demo/functions/apps/[id].js
  */
 // https://developers.cloudflare.com/pages/platform/functions/routing/

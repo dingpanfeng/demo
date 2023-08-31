@@ -12,7 +12,7 @@ export async function onRequest(context) {
     // const sql = 'SELECT * from sloppyware_app_info'
     const sql1 = 'SELECT * FROM sloppyware_app_info WHERE app_package = ?1'
     const d1_res = await context.env.DB.prepare(sql1).bind(id).all()
-    const { results: data } = d1_res
+    const data = d1_res.results[0]
     // 创建一个包含基础 HTML 结构的新 Response 对象
     const html = `
             <!DOCTYPE html>

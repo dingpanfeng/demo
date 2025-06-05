@@ -1,3 +1,10 @@
+<!--
+ * @Author: 丁攀峰 dingpanfeng@ronsafe.cn
+ * @Date: 2023-12-10 22:03:11
+ * @LastEditors: 丁攀峰 dingpanfeng@ronsafe.cn
+ * @LastEditTime: 2025-06-05 16:05:47
+ * @FilePath: /demo/note.md
+-->
 环境变量
 开发 Worker 或 Pages 函数时，.dev.vars在项目的根目录中创建一个文件来定义运行wrangler dev或时将使用的变量wrangler pages dev，而不是在 和[vars]中使用其他环境wrangler.toml。这适用于本地和远程开发模式。
 
@@ -67,3 +74,6 @@ database_id = "c020574a-5623-407b-be0c-cd192bab9545" # 必须得 数据库ID
 bucket = "./public"
 include = ["upload_dir"]
 exclude = ["ignore_dir"]
+
+
+https://yyhsong.github.io/iDataV/

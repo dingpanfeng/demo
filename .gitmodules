@@ -1,0 +1,3 @@
+[submodule "third_party/abcdef"]
+	path = third_party/abcdef
+	url = git@github.com:dingpanfeng/abcdef.git
